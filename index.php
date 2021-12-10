@@ -40,8 +40,8 @@ checkLogin();
 
         <!-- Login Form -->
         <form method="post">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" value="admin">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" value="123456">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
