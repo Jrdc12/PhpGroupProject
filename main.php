@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <?php 
-
+session_start();
 require('databaseConnect.php');
 require('functions.php');
 
@@ -116,6 +116,7 @@ if(isset($_POST['delete2'])){
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
     <p>MONKEY STRONG TOGETHER</p>
+    <a href="logout.php">log-out</a>
 </div>
 
 <div class="container">
