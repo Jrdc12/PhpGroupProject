@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+include 'functions.php';
 checkLogin();
 ?>
 
@@ -29,7 +29,6 @@ checkLogin();
 <body>
 
 
-
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
@@ -47,9 +46,9 @@ checkLogin();
         </form>
 
         <!-- Remind Passowrd -->
-        <!--<div id="formFooter">
+        <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>-->
+        </div>
 
     </div>
 </div>

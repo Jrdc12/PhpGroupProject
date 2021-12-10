@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <?php 
-session_start();
+
 require('databaseConnect.php');
 require('functions.php');
 $table = 'clients';
@@ -35,7 +35,6 @@ $hstNumber = '';
 $website = '';
 $status = '';
 
-$page = 'main.php';
 
 //Client info posted from form
 
@@ -56,6 +55,8 @@ if(isset($_POST['submit'])){
     $rowData =  array(itemNumberGenerator(), $companyName, $businessNumber, $firstName, $lastName, $phoneNumber, $cellNumber, $carriers, $hstNumber, $website, $status);
 
     createData($table, $clientTableColumn, $rowData, $db_connect);
+
+    echo "<meta http-equiv='refresh' content='0'>";
   }           
 }
 ?>
@@ -80,16 +81,13 @@ if(isset($_POST['submit'])){
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#nav_delete">Employee</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="logout.php">Log-out</a>
-        </li>
 
     </ul>
 
 
     <div class="tab-content">
         <div class="tab-pane container active" id="principal">
-            <form role="form" action="main.php" method="POST">
+            <form role="form" method="POST">
                 <div class="form-group"> <label for="username">
                         <h6>Company Name:</h6>
                     </label> <input type="text" name="companyName" placeholder="Company Name:" required class="form-control "> </div>
@@ -268,15 +266,6 @@ if(isset($_POST['submit'])){
                 </div>
             </form>
         </div>
-
-        <!--<div class="tab-pane container fade" id="logOut">
-            <form role="form" method="post">
-                <input type="hidden" name="logout" value="1">
-                <input type="submit" value="Logout">
-            </form>
-
-        </div>-->
-
     </div>
 
 

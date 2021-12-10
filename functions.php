@@ -64,7 +64,8 @@ function updateData($dataBaseConnect, $tableName, $formData, $tableColumn, $idKe
     $success = $preparedQuery->execute();
     if($success){
 
-      echo "you did it!";
+      echo "you did it!<br><br>";
+      echo $sqlQuery;
     }
     else{
       echo "didnt work!<br><br>";
