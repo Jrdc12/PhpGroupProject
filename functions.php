@@ -43,12 +43,19 @@ function readData($dataBaseConnect, $tableName){
   return $tableData;
 }
 
-function updateData($dataBaseConnect, $tableName, $dataArray, $idKey, $idValue){
+function updateData($dataBaseConnect, $tableName, $formData, $tableColumn, $idKey, $idValue){
    //Implodes the array that holds table column names that match column names in sql
   //Implodes the array that's holding form data to be used as data in MySQl table
+  $keyValueArray =  array_combine($tableColumn, $formData );
 
+  foreach($keyValueArray as $key => $value){
+    $value = "'$value'";
+    $arrayToSplit[] = "$key = $value";
+  }
 
-  $sqlQuery = "UPDATE $tableName SET $columnName = '$rowValue' WHERE $idKey = $idValue;";
+  $updateArray = implode(', ', $arrayToSplit);
+
+  $sqlQuery = "UPDATE $tableName SET $updateArray WHERE $idKey = $idValue;";
 
     //prepares query 
     $preparedQuery = $dataBaseConnect->prepare($sqlQuery);
@@ -73,30 +80,29 @@ function getData($dataArray, $dataID, $dataKey){
   else return null;
 }
 
-// This is for the login
 function checkLogin(){
-    session_start();
+  session_start();
 
-    if (isset($_POST["login"]) && !isset($_SESSION["login"])){
-        //This is the user login that can be used to login
-        $logins = [
-            "admin" => "123456",
-            "jordon" => "jensen",
-            "pablo" => "escobar",
-            "julio" => "isSick"
-        ];
-    }
+  if (isset($_POST["login"]) && !isset($_SESSION["login"])){
+      //This is the user login that can be used to login
+      $logins = [
+          "admin" => "123456",
+          "jordon" => "jensen",
+          "pablo" => "escobar",
+          "julio" => "isSick"
+      ];
+  }
 
-    // Checking if it is okay
-    if (isset($logins[$_POST["login"]])){
-        if ($logins[$_POST["login"]] == $_POST["password"]){
-            $_SESSION["login"] = $_POST["login"];
-        }
-    }
+  // Checking if it is okay
+  if (isset($logins[$_POST["login"]])){
+      if ($logins[$_POST["login"]] == $_POST["password"]){
+          $_SESSION["login"] = $_POST["login"];
+      }
+  }
 
-    //Redirecting when signed in
-    if (isset($_SESSION["login"])){
-        header("Location: main.php");
-    }
+  //Redirecting when signed in
+  if (isset($_SESSION["login"])){
+      header("Location: main.php");
+  }
 }
 ?>
