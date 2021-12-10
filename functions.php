@@ -82,7 +82,7 @@ function getData($dataArray, $dataID, $dataKey){
 }
 
 function checkLogin(){
-  session_start();
+
 
   if (isset($_POST["login"]) && !isset($_SESSION["login"])){
       //This is the user login that can be used to login

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Template</title>
+    <title>Group Project</title>
     <meta name="description" content="assingment4">
     <meta name="author" content="Benjamin Sarras">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,7 +118,6 @@ if(isset($_POST['delete2'])){
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
     <p>MONKEY STRONG TOGETHER</p>
-    <a href="logout.php">Logout</a>
 </div>
 
 <div class="container">
@@ -135,6 +134,12 @@ if(isset($_POST['delete2'])){
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#nav_delete">Employee</a>
+        </li>
+        <li>
+            <a class="nav-link" href="member.html">Members</a>
+        </li>
+        <li>
+            <a class="nav-link" href="logout.php">Logout</a>
         </li>
 
     </ul>
