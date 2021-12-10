@@ -8,6 +8,7 @@
     <meta name="author" content="Benjamin Sarras">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styling.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -16,11 +17,12 @@
 
 require('databaseConnect.php');
 require('functions.php');
-$table = 'clients';
-$dataFromTable = readData($db_connect, $table);
+
+//-----------------------------Client Variables and Logic
+$clientTable = 'clients';
+$dataFromTable = readData($db_connect, $clientTable);
 
 $clientTableColumn = array('clientID', 'companyName', 'businessNumber', 'clientFirstName', 'clientLastName', 'phoneNumber', 'cellNumber', 'carriers', 'hstNumber', 'website', 'status');
-// $dataForm = array(12345, "'hotdogs'", "'aName'", "'1234'", "'jeff'", "'goldblum'", "'1234567891'", "'6666555'", "'2343253242'", 112, "'1234www'", "'act'");
 
 //Variables to be filled from form
 $id = '';
@@ -36,7 +38,7 @@ $website = '';
 $status = '';
 
 
-//Client info posted from form
+//Data posted from form to create Data
 
 if(isset($_POST['submit'])){
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -54,12 +56,62 @@ if(isset($_POST['submit'])){
 
     $rowData =  array(itemNumberGenerator(), $companyName, $businessNumber, $firstName, $lastName, $phoneNumber, $cellNumber, $carriers, $hstNumber, $website, $status);
 
-    createData($table, $clientTableColumn, $rowData, $db_connect);
+    createData($clientTable, $clientTableColumn, $rowData, $db_connect);
 
+    //Refresh page to update the table with all info. 
     echo "<meta http-equiv='refresh' content='0'>";
   }           
 }
+
+//Data used to delete out of table
+if(isset($_POST['delete'])){
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $id = $_POST['id'];
+    deleteData($db_connect, $clientTable, 'clientID', $id);
+
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+}
+
+
+//------------------------Notification Manager variables and logic 
+$notifyTable = 'notificationManager';
+$notifyData = readData($db_connect, $notifyTable);
+
+$notifyColumn = array('notificationID', 'notifyName', 'notifyType', 'notifyStatus');
+
+$notifyID = '';
+$notifyName = '';
+$notifyType = '';
+$notifyStatus = '';
+
+if(isset($_POST['submit'])){
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $notifyName = $_POST['notifyName'];
+    $notifyType = $_POST['notifyType'];
+    $notifyStatus = $_POST['notifyStatus'];
+
+    $notifyData =  array(itemNumberGenerator(), $notifyName, $notifyType, $notifyStatus);
+
+    createData($notifyTable, $notifyColumn, $notifyData, $db_connect);
+
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+}
+
+//Data used to delete out of table
+if(isset($_POST['delete'])){
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $notifyID = $_POST['notifyID'];
+    deleteData($db_connect, $notifyTable, 'notificationID', $notifyID);
+
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+}
+
 ?>
+
 <body>
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
@@ -67,7 +119,7 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="container">
-
+<!-- Navigation Block -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#principal">Clients Manager</a>
@@ -84,7 +136,7 @@ if(isset($_POST['submit'])){
 
     </ul>
 
-
+<!-- Form for client management, filled out info on submit fills table out -->
     <div class="tab-content">
         <div class="tab-pane container active" id="principal">
             <form role="form" method="POST">
@@ -117,14 +169,14 @@ if(isset($_POST['submit'])){
                     </label> <input type="text" name="website" placeholder="Website:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username"></label>
                     <h6>Status:</h6>
-                    <label class="radio-inline"> <input type="radio" name="status" value="yes" checked> Active </label>
-                    <label class="radio-inline"> <input type="radio" name="status" value="no" class="ml-5">Inactive </label>
+                    <label class="radio-inline"> <input type="radio" name="status" value="active" checked> Active </label>
+                    <label class="radio-inline"> <input type="radio" name="status" value="inactive" class="ml-5">Inactive </label>
                 </div>
                 <div class="form-group">
                   <button type="submit" name="submit" class="btn btn-dark">Submit</button>
                 </div>
             </form>
-
+<!-- Table of data from MySql that was stored as an array -->
     <?php if(count($dataFromTable) > 0): ?>
     <table class="table table-dark table-hover">
       <tr>
@@ -154,6 +206,10 @@ if(isset($_POST['submit'])){
         <td><?= $data['status'] ?></td>
         <td>
           <a class="btn btn-dark" href="updateData.php?id=<?= $id ?>" role="button">Update</a>
+          <form method="post" class="buttonInline">
+            <input type="hidden" name="id" value=<?=$id?>>
+            <button type="submit" name="delete" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+          </form>
         </td>
       </tr>
 
@@ -164,27 +220,52 @@ if(isset($_POST['submit'])){
     <?php endif; ?>
   </div>
 
-
+<!-- Notification Block  -->
         <div class="tab-pane container fade" id="nav_insert">
-            <form role="form" onsubmit="event.preventDefault()">
+            <form role="form" method="post">
                 <div class="form-group"> <label for="username">
                         <h6>Name (to identify the notification):</h6>
-                    </label> <input type="text" name="username" placeholder="Name:" required class="form-control "> </div>
+                    </label> <input type="text" name="notifyName" placeholder="Name:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username"></label>
                     <h6>Notification Type:</h6>
-                    <label class="radio-inline"> <input type="radio" name="optradio" > E-mail </label>
-                    <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">SMS </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyType" value="email" > E-mail </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyType" value="sms" class="ml-5">SMS </label>
                 </div>
-
                 <div class="form-group"> <label for="username"></label>
                     <h6>Status:</h6>
-                    <label class="radio-inline"> <input type="radio" name="optradio" checked> Disable </label>
-                    <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Enable </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyStatus" value="disable" checked> Disable </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyStatus" value="enable" class="ml-5">Enable </label>
                 </div>
-
-
+                <div class="form-group">
+                <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+                </div>
             </form>
-
+            <?php if(count($notifyData) > 0) : ?>
+              <table class="table table-dark table-hover">
+                <tr>
+                  <th>Name</th>
+                  <th>Notification Type</th>
+                  <th>Status</th>
+                </tr>
+            <?php foreach($notifyData as $key => $data2): ?>
+            <?php $notifyID = $data2['notificationID'] ?>
+                <tr>
+                  <td><?= $data2['notifyName'] ?></td>
+                  <td><?= $data2['notifyType'] ?></td>
+                  <td><?= $data2['notifyStatus'] ?></td>
+                  <td>
+                    <a class="btn btn-dark" href="updateData.php#nav_insert?id=<?= $notifyID ?>" role="button">Update</a>
+                    <form method="post" class="buttonInline">
+                      <input type="hidden" name="id" value=<?=$notifyID?>>
+                      <button type="submit" name="delete" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <?php endforeach; ?>  
+              </table>
+              <?php else: ?>
+                <h3> NO DATA TO DISPLAY </h3>
+              <?php endif; ?>
         </div>
 
 

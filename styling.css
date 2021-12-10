@@ -1,0 +1,13 @@
+*{
+  box-sizing:border-box;
+}
+
+.buttonInline{
+  display: inline;
+}
+
+footer{
+  background-color: black;
+  color: red;
+  padding: .5em;
+}

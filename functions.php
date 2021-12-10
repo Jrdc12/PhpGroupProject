@@ -62,17 +62,17 @@ function updateData($dataBaseConnect, $tableName, $formData, $tableColumn, $idKe
 
     // executes query
     $success = $preparedQuery->execute();
-    if($success){
-
-      echo "you did it!<br><br>";
-      echo $sqlQuery;
-    }
-    else{
-      echo "didnt work!<br><br>";
-      echo $sqlQuery;
-    }
 }
 
+function deleteData($dataBaseConnect, $tableName, $idKey, $idValue){
+  $sqlQuery = "DELETE FROM $tableName WHERE $idKey = $idValue;";
+
+  $preparedQuery = $dataBaseConnect->prepare($sqlQuery);
+
+  $success = $preparedQuery->execute();
+}
+
+//Finds a single row in the array created by the tables. 
 function getData($dataArray, $dataID, $dataKey){
   $return = array_search($dataID, array_column($dataArray, $dataKey)); 
   if($productID >= 0){
