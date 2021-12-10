@@ -8,16 +8,40 @@
     <meta name="author" content="Benjamin Sarras">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 </head>
+<?php 
+
+require('databaseConnect.php');
+require('functions.php');
+$table = 'clients';
+$dataFromTable = readData($db_connect, $table);
+
+$clientTableColumn = array('clientID', 'companyName', 'businessNumber', 'clientFirstName', 'clientLastName', 'phoneNumber', 'cellNumber', 'carriers', 'hstNumber', 'website', 'status');
+$dataForm = array("'12345'", "'hotdogs'", "'aName'", "'1234'", "'jeff'", "'goldblum'", "'1234567891'", "'6666555'", "'2343253242'", "'112'", "'1234www'", "'act'");
+
+//Variables to be filled from form
+$id = '';
+$companyName = '';
+$businessNumber = '';
+$firstName = '';
+$lastName = '';
+$phoneNumber = '';
+$cellNumber = '';
+$carriers = '';
+$hstNumber = '';
+$website = '';
+$status = '';
+
+//Client info posted from form
+
+
+?>
+
 
 <body>
-
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
     <p>MONKEY STRONG TOGETHER</p>
@@ -44,39 +68,44 @@
 
     <div class="tab-content">
         <div class="tab-pane container active" id="principal">
-            <form role="form" onsubmit="event.preventDefault()">
+            <form role="form" onsubmit="event.preventDefault()" method="POST">
                 <div class="form-group"> <label for="username">
                         <h6>Company Name:</h6>
-                    </label> <input type="text" name="username" placeholder="Company Name:" required class="form-control "> </div>
+                    </label> <input type="text" name="companyName" placeholder="Company Name:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Business number:</h6>
-                    </label> <input type="text" name="username" placeholder="Business number:" required class="form-control "> </div>
+                    </label> <input type="text" name="businessNumber" placeholder="Business number:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Contact's first name:</h6>
-                    </label> <input type="text" name="username" placeholder=" Contact's first name:" required class="form-control "> </div>
+                    </label> <input type="text" name="firstName" placeholder=" Contact's first name:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Contact's last name:</h6>
-                    </label> <input type="text" name="username" placeholder="Contact's last name:" required class="form-control "> </div>
+                    </label> <input type="text" name="lastName" placeholder="Contact's last name:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Phone number:</h6>
-                    </label> <input type="text" name="username" placeholder="Phone number:" required class="form-control "> </div>
+                    </label> <input type="text" name="phoneNumber" placeholder="Phone number:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Cell number:</h6>
-                    </label> <input type="text" name="username" placeholder="Cell number:" required class="form-control "> </div>
+                    </label> <input type="text" name="cellNumber" placeholder="Cell number:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Carriers:</h6>
-                    </label> <input type="text" name="username" placeholder="Carriers:" required class="form-control "> </div>
+                    </label> <input type="text" name="carriers" placeholder="Carriers:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>HST number:</h6>
-                    </label> <input type="text" name="username" placeholder="HST number:" required class="form-control "> </div>
+                    </label> <input type="text" name="hstNumber" placeholder="HST number:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username">
                         <h6>Website:</h6>
-                    </label> <input type="text" name="username" placeholder="Website:" required class="form-control "> </div>
+                    </label> <input type="text" name="website" placeholder="Website:" required class="form-control "> </div>
                 <div class="form-group"> <label for="username"></label>
                     <h6>Status:</h6>
-                    <label class="radio-inline"> <input type="radio" name="optradio" checked> Active </label>
-                    <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Inactive </label>
+                    <label class="radio-inline"> <input type="radio" name="status" value="yes" checked> Active </label>
+                    <label class="radio-inline"> <input type="radio" name="status" value="no" class="ml-5">Inactive </label>
                 </div>
+                <div class="form-group">
+                  <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+                </div>
+
+
 
 
             </form>
@@ -183,17 +212,56 @@
                     <label class="radio-inline"> <input type="radio" name="optradio" checked> Active </label>
                     <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Inactive </label>
                 </div>
-
-
             </form>
-
         </div>
     </div>
 
+    <?php if(count($dataFromTable) > 0): ?>
+    <table class="table table-dark table-hover">
+      <tr>
+        <th>Company Name</th>
+        <th>Business Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Cell Number</th>
+        <th>Carriers</th>
+        <th>HST</th>
+        <th>Website</th>
+        <th>Status</th>
+      </tr>
+      <?php foreach($dataFromTable as $key => $data): ?>
+      <tr>
+        <td><?= $data['companyName'] ?></td>
+        <td><?= $data['businessNumber'] ?></td>
+        <td><?= $data['clientFirstName'] ?></td>
+        <td><?= $data['clientLastName'] ?></td>
+        <td><?= $data['phoneNumber'] ?></td>
+        <td><?= $data['cellNumber'] ?></td>
+        <td><?= $data['carriers'] ?></td>
+        <td><?= $data['hstNumber'] ?></td>
+        <td><?= $data['website'] ?></td>
+        <td><?= $data['status'] ?></td>
+        <td>
+
+        </td>
+      </tr>
+
+      <?php endforeach; ?>
+    </table>
+    <?php else: ?>
+      <h3> No Data to Display </h3>
+    <?php endif; ?>
+
+    <?php
+      createData($table, $clientTableColumn, $dataForm, $db_connect);
+    ?>
 
 </div>
 
-
+<pre>
+ <?php print_r($dataFromTable); ?>
+</pre>
 
 
 
