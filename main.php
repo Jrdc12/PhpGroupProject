@@ -116,6 +116,7 @@ if(isset($_POST['delete'])){
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
     <p>MONKEY STRONG TOGETHER</p>
+    <a href="logout.php">log-out</a>
 </div>
 
 <div class="container">
