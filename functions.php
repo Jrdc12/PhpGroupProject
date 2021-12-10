@@ -72,4 +72,31 @@ function getData($dataArray, $dataID, $dataKey){
   }
   else return null;
 }
+
+// This is for the login
+function checkLogin(){
+    session_start();
+
+    if (isset($_POST["login"]) && !isset($_SESSION["login"])){
+        //This is the user login that can be used to login
+        $logins = [
+            "admin" => "123456",
+            "jordon" => "jensen",
+            "pablo" => "escobar",
+            "julio" => "isSick"
+        ];
+    }
+
+    // Checking if it is okay
+    if (isset($logins[$_POST["login"]])){
+        if ($logins[$_POST["login"]] == $_POST["password"]){
+            $_SESSION["login"] = $_POST["login"];
+        }
+    }
+
+    //Redirecting when signed in
+    if (isset($_SESSION["login"])){
+        header("Location: main.php");
+    }
+}
 ?>
