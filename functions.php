@@ -14,10 +14,11 @@ function createData($tableName, $tableColumn, $formData, $dataBaseConnect){
   //Implodes the array that holds table column names that match column names in sql
   //Implodes the array that's holding form data to be used as data in MySQl table
   $columnName = implode(", ", $tableColumn);
-  $rowValue  = implode(", ", $formData);
+  $rowValue  = implode("', '", $formData);
+  
   
   //As each array is divided by , it fits an insert statement
-  $sqlQuery = "INSERT INTO $tableName ($columnName) VALUES ($rowValue);";
+  $sqlQuery = "INSERT INTO $tableName ($columnName) VALUES ('$rowValue');";
 
   echo $sqlQuery;
 
@@ -26,34 +27,49 @@ function createData($tableName, $tableColumn, $formData, $dataBaseConnect){
 
   // executes query
   $success = $preparedQuery->execute();
-
-  if($success){
-    echo "Yea did it!";
-  }else{
-    echo" yea didnt do it!";
-  }
 }
 
-  function readData($dataBaseConnect, $tableName){
-    $sqlQuery = "SELECT * FROM $tableName;";
-    $returnedQuery = $dataBaseConnect->query($sqlQuery);
-    $tableData = [];
+function readData($dataBaseConnect, $tableName){
+  $sqlQuery = "SELECT * FROM $tableName;";
+  $returnedQuery = $dataBaseConnect->query($sqlQuery);
+  $tableData = [];
 
-    $returnedQuery->execute();
+  $returnedQuery->execute();
 
-    // $success = $returnedQuery->fetchAll(PDO::FETCH_ASSOC);
-  
-    
-      while($row = $returnedQuery->fetch(PDO::FETCH_ASSOC)){
+    while($row = $returnedQuery->fetch(PDO::FETCH_ASSOC)){
+      $tableData[] = $row;
+    }
+ 
+  return $tableData;
+}
 
-        $tableData[] = $row;
-    //     // echo"Guitar Name: " . $row["guitar_name"] . "<br>" .
-    //     //     "Guitar ID: " . $row["guitar_id"] . "<br>" . 
-    //     //     "Guitar Year: " . $row["guitar_year"] . "<br>" . 
-    //     //     "Guitar Wood: " . $row["guitar_wood"] . "<br>"; 
-      }
-   
-    return $tableData;
+function updateData($dataBaseConnect, $tableName, $dataArray, $idKey, $idValue){
+   //Implodes the array that holds table column names that match column names in sql
+  //Implodes the array that's holding form data to be used as data in MySQl table
+
+
+  $sqlQuery = "UPDATE $tableName SET $columnName = '$rowValue' WHERE $idKey = $idValue;";
+
+    //prepares query 
+    $preparedQuery = $dataBaseConnect->prepare($sqlQuery);
+
+    // executes query
+    $success = $preparedQuery->execute();
+    if($success){
+
+      echo "you did it!";
+    }
+    else{
+      echo "didnt work!<br><br>";
+      echo $sqlQuery;
+    }
+}
+
+function getData($dataArray, $dataID, $dataKey){
+  $return = array_search($dataID, array_column($dataArray, $dataKey)); 
+  if($productID >= 0){
+    return $dataArray[$return];
   }
-
+  else return null;
+}
 ?>

@@ -1,0 +1,102 @@
+[09-Dec-2021 21:01:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function readData() in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 18
+[09-Dec-2021 21:02:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function readData() in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 18
+[09-Dec-2021 21:08:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function readData() in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 19
+[09-Dec-2021 21:10:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php:33
+Stack trace:
+#0 /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php(20): readData(NULL, 'clients')
+#1 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php on line 33
+[09-Dec-2021 22:53:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_fetch_array() in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php:37
+Stack trace:
+#0 /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php(20): readData(Object(PDO), 'clients')
+#1 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php on line 37
+[09-Dec-2021 22:53:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_fetch_array() in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php:37
+Stack trace:
+#0 /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php(20): readData(Object(PDO), 'clients')
+#1 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php on line 37
+[09-Dec-2021 23:23:25 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, object given in /home/f1740151/public_html/comp1230/assignments/assignment4/functions.php on line 41
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:48 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:28:51 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:00 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:16 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:29:52 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant clientID - assumed 'clientID' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant companyName - assumed 'companyName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant businessNumber - assumed 'businessNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant clientFirstName - assumed 'clientFirstName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant clientLastName - assumed 'clientLastName' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant phoneNumber - assumed 'phoneNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant cellNumber - assumed 'cellNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant carriers - assumed 'carriers' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant hstNumber - assumed 'hstNumber' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant website - assumed 'website' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 01:30:07 UTC] PHP Warning:  Use of undefined constant status - assumed 'status' (this will throw an Error in a future version of PHP) in /home/f1740151/public_html/comp1230/assignments/assignment4/Clients.php on line 22
+[10-Dec-2021 12:59:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getData() in /home/f1740151/public_html/comp1230/assignments/assignment4/updateData.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/updateData.php on line 45
+[10-Dec-2021 12:59:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getData() in /home/f1740151/public_html/comp1230/assignments/assignment4/updateData.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/f1740151/public_html/comp1230/assignments/assignment4/updateData.php on line 45
