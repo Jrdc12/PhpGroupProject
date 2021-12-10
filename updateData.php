@@ -97,7 +97,7 @@ $notifyName = $notifyIDFromData['notifyName'];
 $notifyType = $notifyIDFromData['notifyType'];
 $notifyStatus = $notifyIDFromData['notifyStatus'];
 
-if(isset($_POST['update'])){
+if(isset($_POST['update2'])){
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     $notifyName = $_POST['notifyName'];
@@ -106,9 +106,10 @@ if(isset($_POST['update'])){
 
     $notifyData =  array($notifyName, $notifyType, $notifyStatus);
 
-    updateData($db_connect, $notifyTable, $notifyData, $notifyColumn, 'notificationID'. $_GET['notifyID']);
+    updateData($db_connect, $notifyTable, $notifyData, $notifyColumn, 'notificationID', $_GET['notifyID']);
 
     echo "<meta http-equiv='refresh' content='0'>";
+    echo "<script>window.location.href='main.php';</script>";
   }
 }
 ?>
@@ -174,7 +175,7 @@ if(isset($_POST['update'])){
                     <label class="radio-inline"> <input type="radio" name="status" value="inactive" <?php if('inactive' === $idFromData['status']){ echo 'checked';}?> class="ml-5">Inactive </label>
                 </div>
                 <div class="form-group">
-                  <button type="submit" name="update" href="main.php" class="btn btn-dark">Update</button>
+                  <button type="submit" name="update" class="btn btn-dark">Update</button>
                 </div>
             </form>
 
@@ -225,8 +226,8 @@ if(isset($_POST['update'])){
                     </label> <input type="text" name="notifyName" value="<?= $notifyName ?>"required class="form-control "> </div>
                 <div class="form-group"> <label for="username"></label>
                     <h6>Notification Type:</h6>
-                    <label class="radio-inline"> <input type="radio" name="notifyType" value="email" > E-mail </label>
-                    <label class="radio-inline"> <input type="radio" name="notifyType" value="sms" class="ml-5">SMS </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyType" value="email" <?php if('email' === $notifyIDFromData['notifyType']){echo 'checked';}?> > E-mail </label>
+                    <label class="radio-inline"> <input type="radio" name="notifyType" value="sms" <?php if('sms' === $notifyIDFromData['notifyType']){echo 'checked';}?> class="ml-5">SMS </label>
                 </div>
                 <div class="form-group"> <label for="username"></label>
                     <h6>Status:</h6>
@@ -234,7 +235,7 @@ if(isset($_POST['update'])){
                     <label class="radio-inline"> <input type="radio" name="notifyStatus" value="enable" <?php if('enable' === $notifyIDFromData['notifyStatus']){echo 'checked';}?> class="ml-5">Enable </label>
                 </div>
                 <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+                  <button type="submit" name="update2" class="btn btn-dark">Update</button>
                 </div>
             </form>
             <?php if(count($notifyData) > 0) : ?>
@@ -252,10 +253,6 @@ if(isset($_POST['update'])){
                   <td><?= $data2['notifyStatus'] ?></td>
                   <td>
                     <a class="btn btn-dark" href="updateData.php?id=<?= $notifyID ?>" role="button">Update</a>
-                    <form method="post" class="buttonInline">
-                      <input type="hidden" name="id" value=<?=$notifyID?>>
-                      <button type="submit" name="delete" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
-                    </form>
                   </td>
                 </tr>
               <?php endforeach; ?>  

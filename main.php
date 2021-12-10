@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
 }
 
 //Data used to delete out of table
-if(isset($_POST['delete'])){
+if(isset($_POST['delete2'])){
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $notifyID = $_POST['notifyID'];
     deleteData($db_connect, $notifyTable, 'notificationID', $notifyID);
@@ -116,7 +116,6 @@ if(isset($_POST['delete'])){
 <div class="jumbotron text-center">
     <h1>APPLICATION</h1>
     <p>MONKEY STRONG TOGETHER</p>
-    <a href="logout.php">log-out</a>
 </div>
 
 <div class="container">
@@ -209,7 +208,7 @@ if(isset($_POST['delete'])){
           <a class="btn btn-dark" href="updateData.php?id=<?= $id ?>" role="button">Update</a>
           <form method="post" class="buttonInline">
             <input type="hidden" name="id" value=<?=$id?>>
-            <button type="submit" name="delete" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+            <button type="submit" name="delete2" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
           </form>
         </td>
       </tr>
@@ -255,10 +254,10 @@ if(isset($_POST['delete'])){
                   <td><?= $data2['notifyType'] ?></td>
                   <td><?= $data2['notifyStatus'] ?></td>
                   <td>
-                    <a class="btn btn-dark" href="updateData.php#nav_insert?id=<?= $notifyID ?>" role="button">Update</a>
+                    <a class="btn btn-dark" href="updateData.php?notifyID=<?= $notifyID ?>" role="button">Update</a>
                     <form method="post" class="buttonInline">
-                      <input type="hidden" name="id" value=<?=$notifyID?>>
-                      <button type="submit" name="delete" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+                      <input type="hidden" name="notifyID" value=<?=$notifyID?>>
+                      <button type="submit" name="delete2" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
                     </form>
                   </td>
                 </tr>
@@ -349,25 +348,9 @@ if(isset($_POST['delete'])){
             </form>
         </div>
     </div>
-
-
-
 </div>
-
-
-
-
-
-
 <script src=https://my.gblearn.com/js/loadscript.js></script>
-
 </body>
-
-
-
-
-
-
 </html>
 
 <?php
