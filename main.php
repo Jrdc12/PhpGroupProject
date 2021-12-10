@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <?php 
-
+session_start();
 require('databaseConnect.php');
 require('functions.php');
 $table = 'clients';
@@ -79,6 +79,9 @@ if(isset($_POST['submit'])){
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#nav_delete">Employee</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="logout.php">Log-out</a>
         </li>
 
     </ul>
@@ -265,6 +268,15 @@ if(isset($_POST['submit'])){
                 </div>
             </form>
         </div>
+
+        <!--<div class="tab-pane container fade" id="logOut">
+            <form role="form" method="post">
+                <input type="hidden" name="logout" value="1">
+                <input type="submit" value="Logout">
+            </form>
+
+        </div>-->
+
     </div>
 
 
