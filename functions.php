@@ -100,7 +100,8 @@ function getData($dataArray, $dataID, $dataKey){
 }
 
 function checkLogin(){
-  session_start();
+  function checkLogin(){
+
 
   if (isset($_POST["login"]) && !isset($_SESSION["login"])){
       //This is the user login that can be used to login
@@ -112,9 +113,14 @@ function checkLogin(){
       ];
   }
 
+  $password = $_POST["password"];
+
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+
   // Checking if it is okay
   if (isset($logins[$_POST["login"]])){
-      if ($logins[$_POST["login"]] == $_POST["password"]){
+      if ($logins[$_POST["login"]] == password_verify($password, $hashed_password)){
           $_SESSION["login"] = $_POST["login"];
       }
   }
@@ -124,5 +130,4 @@ function checkLogin(){
       header("Location: main.php");
   }
 }
-
 ?>
